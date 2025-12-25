@@ -1,0 +1,99 @@
+.flight-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.flight-info {
+  flex: 1;
+}
+
+.flight-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.flight-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 15px;
+}
+
+.flight-info .time {
+  color: #555;
+  font-weight: 500;
+}
+
+.flight-info .seats {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.flight-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0;
+}
+
+.flight-action button {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.flight-action button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 768px) {
+  .flight-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .flight-action {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  .flight-action button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

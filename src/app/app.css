@@ -1,0 +1,11 @@
+main {
+  min-height: calc(100vh - 60px);
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+}
