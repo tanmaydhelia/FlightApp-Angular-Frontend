@@ -27,8 +27,5 @@ export const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.routes').then(m => m.ADMIN_ROUTES),
     canActivate: [adminGuardTsGuard]
-  },
-
-  // Fallback for unknown routes
-  { path: '**', redirectTo: 'auth/login' }
+  }
 ];

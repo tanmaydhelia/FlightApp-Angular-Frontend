@@ -7,10 +7,10 @@ import { LoginForm } from '../../containers/login-form/login-form';
 
 @Component({
   selector: 'app-login',
-  standalone:true,
-  imports: [LoginForm],
+  standalone: true,
+  imports: [CommonModule, RouterModule, LoginForm],
   templateUrl: './login.html',
-  styleUrl: './login.css',
+  styleUrls: ['./login.css'],
 })
 export class Login {
  private flightService = inject(FlightService);
@@ -29,12 +29,14 @@ export class Login {
         localStorage.setItem('token', token); 
         localStorage.setItem('tokenExpiry', expiryTime.toString()); 
         this.isLoading.set(false);
-        this.router.navigate(['/search']); 
+        this.router.navigate(['/flights/search']); 
       },
-      error: () => {
+      error: (err) => {
         this.isLoading.set(false);
         this.error.set('Invalid username or password.'); 
+        console.error('Login error:', err);
       }
     });
   }
+  
 }

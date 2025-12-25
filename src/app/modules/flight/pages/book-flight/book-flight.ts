@@ -93,7 +93,7 @@ export class BookFlight implements OnInit{
       this.flightService.bookFlight(this.flightId, request).subscribe({
         next: (res) => {
           alert(`Success! PNR: ${res.pnr}`);
-          this.router.navigate(['/search']);
+          this.router.navigate(['/flights/search']);
         },
         error: () => alert('Booking failed. Check your token or seats availability.'),
       });
