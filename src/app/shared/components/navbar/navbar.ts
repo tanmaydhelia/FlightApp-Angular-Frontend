@@ -19,7 +19,7 @@ export class Navbar {
     localStorage.removeItem('authToken');
     localStorage.removeItem('tokenExpiry');
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
   
   isLoggedIn(): boolean {

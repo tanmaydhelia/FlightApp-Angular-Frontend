@@ -10,7 +10,7 @@ export const adminGuardTsGuard: CanActivateFn = (route, state) => {
     return true;
   } 
   else{
-    router.navigate(['/search']);
+    router.navigate(['/flights/search']);
     return false;
   }
 };

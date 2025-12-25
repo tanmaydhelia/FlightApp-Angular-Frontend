@@ -32,7 +32,7 @@ export class ChangePassword {
         this.message.set(res);
         this.formComponent.reset();
         // Redirect back to profile after success
-        setTimeout(() => this.router.navigate(['/profile']), 2000);
+        setTimeout(() => this.router.navigate(['/auth/profile']), 2000);
       },
       error: () => this.message.set("Failed to change password.")
     });

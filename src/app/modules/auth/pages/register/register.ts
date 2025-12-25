@@ -18,7 +18,7 @@ export class Register {
 
   onRegister(userData: any) {
     this.flightService.register(userData).subscribe({
-      next: () => this.router.navigate(['/login']),
+      next: () => this.router.navigate(['/auth/login']),
       error: (err) => alert('Registration failed: ' + err.message)
     });
   }
