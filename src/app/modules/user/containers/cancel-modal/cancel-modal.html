@@ -1,0 +1,10 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3>Confirm Cancellation</h3>
+    <p>Are you sure you want to cancel booking <strong>{{ pnr }}</strong>?</p>
+    <div class="modal-actions">
+      <button (click)="confirm.emit()" class="btn-confirm">Yes, Cancel It</button>
+      <button (click)="close.emit()" class="btn-close">Go Back</button>
+    </div>
+  </div>
+</div>

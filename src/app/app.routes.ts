@@ -2,34 +2,33 @@ import { Routes } from '@angular/router';
 import { adminGuardTsGuard } from './core/guards/admin-guard.ts-guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { 
-    path: 'login', 
-    loadComponent: () => import('./modules/auth/pages/login/login').then(m => m.Login) 
+    { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+
+  // Auth Module: Login, Register, Change Password
+  {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.routes').then(m => m.AUTH_ROUTES)
   },
-  { 
-    path: 'register', 
-    loadComponent: () => import('./modules/auth/pages/register/register').then(m => m.Register) 
+
+  // Flight Module: Search and Booking
+  {
+    path: 'flights',
+    loadChildren: () => import('./modules/flight/flight.routes').then(m => m.FLIGHT_ROUTES)
   },
-  { 
-    path: 'search', 
-    loadComponent: () => import('./modules/flight/pages/search-flight/search-flight').then(m => m.SearchFlights) 
+
+  // User Module: Profile and History
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/user/user.routes').then(m => m.USER_ROUTES)
   },
-  { 
-    path: 'book/:id', 
-    loadComponent: () => import('./modules/flight/pages/book-flight/book-flight').then(m => m.BookFlight) 
+
+  // Admin Module: Guarded by AdminGuard
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.routes').then(m => m.ADMIN_ROUTES),
+    canActivate: [adminGuardTsGuard]
   },
-  { 
-    path: 'profile', 
-    loadComponent: () => import('./modules/user/pages/profile-page/profile').then(m => m.Profile) 
-  },
-  { 
-    path: 'change-password', 
-    loadComponent: () => import('./modules/auth/pages/change-password/change-password').then(m => m.ChangePassword) 
-  },
-  { 
-    path: 'admin', 
-    loadComponent: () => import('./modules/admin/pages/admin-dashboard/admin-panel.component').then(m => m.AdminPanel),
-    canActivate: [adminGuardTsGuard] 
-  }
+
+  // Fallback for unknown routes
+  { path: '**', redirectTo: 'auth/login' }
 ];

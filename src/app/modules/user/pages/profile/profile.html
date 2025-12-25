@@ -1,0 +1,33 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-details">
+      <h3>Account: {{ userEmail() || 'Not set' }}</h3>
+    </div>
+    <button routerLink="/change-password" class="btn-settings">
+      Change Password
+    </button>
+  </div>
+
+  <h1>Booking History</h1>
+
+  @for (booking of bookings(); track booking.pnr) {
+    <app-booking-card 
+      [booking]="booking" 
+      (cancel)="openCancelPopup($event)">
+    </app-booking-card>
+  }
+
+  @if (bookings().length === 0) {
+    <div class="no-data">
+      <p>No booking history found.</p>
+    </div>
+  }
+
+  @if (showModal()) {
+    <app-cancel-modal 
+      [pnr]="pnrToCancel()!" 
+      (confirm)="confirmCancellation()" 
+      (close)="closePopup()">
+    </app-cancel-modal>
+  }
+</div>

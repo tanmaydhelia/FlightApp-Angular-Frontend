@@ -1,0 +1,15 @@
+<div class="booking-card">
+  <div class="booking-header">
+    <span class="pnr">PNR: {{ booking.pnr }}</span>
+    <span class="status" [ngClass]="booking.status">{{ booking.status }}</span>
+  </div>
+  <div class="booking-details">
+    <p>Total Amount: Rs.{{ booking.totalAmount }}</p>
+  </div>
+  
+  <button *ngIf="booking.status === 'BOOKED'" 
+          (click)="onCancel()" 
+          class="cancel-btn">
+    Cancel Booking
+  </button>
+</div>
