@@ -1,0 +1,28 @@
+<div class="seat-map-container">
+  <h3>Select Seats for Passengers</h3>
+  <div class="seat-grid-scroll">
+    <table class="seat-grid">
+      <tbody>
+        @for (r of rows; track r) {
+        <tr>
+          <td class="row-num">{{r}}</td>
+          @for (c of cols; track c) {
+            @let seatId = r + c;
+            <td>
+              <button 
+                type="button"
+                class="seat-btn"
+                [class.occupied]="isOccupied(seatId)"
+                [class.selected]="isSelected(seatId)"
+                [disabled]="isOccupied(seatId)"
+                (click)="onSeatClick(seatId)">
+                {{seatId}}
+              </button>
+            </td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

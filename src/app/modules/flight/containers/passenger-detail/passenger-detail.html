@@ -1,0 +1,18 @@
+<div [formGroup]="passengerForm" 
+     class="passenger-item" 
+     [class.active-selection]="isActive"
+     (click)="onActivate()">
+  <h4>
+    Passenger {{ index + 1 }} 
+    @if(isActive){ <span>(Selecting Seat...)</span> }
+  </h4>
+  <div class="grid-inputs">
+    <input type="text" formControlName="name" placeholder="Name" />
+    <input type="number" formControlName="age" placeholder="Age" />
+    <select formControlName="gender">
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+    </select>
+    <input type="text" formControlName="seatNumber" placeholder="Seat" readonly />
+  </div>
+</div>

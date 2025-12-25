@@ -1,0 +1,19 @@
+<div class="search-page">
+  <h2>Find Your Flight</h2>
+
+  <app-search-form (search)="onSearch($event)"></app-search-form>
+
+  <div class="results" *ngIf="!isLoading()">
+    @for (flight of searchResults(); track flight.flightId) {
+      <app-flight-card [flight]="flight"></app-flight-card>
+    }
+
+    <p *ngIf="hasSearched() && searchResults().length === 0">
+      No flights found for this route and date.
+    </p>
+  </div>
+
+  <div *ngIf="isLoading()" class="loading-state">
+    <p>Searching for best flights...</p>
+  </div>
+</div>

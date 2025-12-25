@@ -1,0 +1,12 @@
+<div class="flight-card">
+  <div class="flight-info">
+    <h3>{{ flight.airlineName }} ({{ flight.airlineCode }})</h3>
+    <p>{{ flight.fromAirport }} ➔ {{ flight.toAirport }}</p>
+    <p class="time">Departure: {{ flight.departureTime }} | Arrival: {{ flight.arrivalTime }}</p>
+    <p class="seats">Available Seats: {{ flight.availableSeats }}</p>
+  </div>
+  <div class="flight-action">
+    <p class="price">Rs. {{ flight.price }}</p>
+    <button [routerLink]="['/book', flight.flightId]">Book Now</button>
+  </div>
+</div>

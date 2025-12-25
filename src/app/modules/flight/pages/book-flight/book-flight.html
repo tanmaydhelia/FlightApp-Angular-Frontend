@@ -1,0 +1,36 @@
+<div class="booking-page">
+  <div class="booking-card">
+    <h2>Flight Booking</h2>
+
+    <app-seat-map 
+      [occupiedSeats]="occupiedSeats" 
+      [selectedSeats]="selectedSeats"
+      (seatSelected)="handleSeatSelection($event)">
+    </app-seat-map>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onBook()">
+      <div class="section">
+        <h3>Contact Info</h3>
+        <div class="grid-inputs">
+          <input type="text" formControlName="name" placeholder="Full Name" />
+          <input type="email" formControlName="email" placeholder="Email" />
+          <input type="number" formControlName="numberOfSeats" (input)="syncPassengerForms()" placeholder="Seats" />
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Passenger Details</h3>
+        @for (group of passengerGroups; track $index) {
+          <app-passenger-detail 
+            [passengerForm]="group" 
+            [index]="$index"
+            [isActive]="activePassengerIndex === $index"
+            (activated)="activePassengerIndex = $index">
+          </app-passenger-detail>
+        }
+      </div>
+
+      <button type="submit" [disabled]="bookingForm.invalid" class="btn-book">Confirm Booking</button>
+    </form>
+  </div>
+</div>
