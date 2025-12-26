@@ -99,6 +99,19 @@
   text-decoration: underline;
 }
 
+
+.divider span {
+  padding: 0 10px;
+  font-size: 0.9rem;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .login-card {
     padding: 25px;

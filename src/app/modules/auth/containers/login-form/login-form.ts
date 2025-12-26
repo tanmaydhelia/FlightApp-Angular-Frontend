@@ -1,3 +1,4 @@
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -5,7 +6,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login-form',
   standalone:true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, GoogleSigninButtonModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
 })

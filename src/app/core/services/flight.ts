@@ -24,6 +24,15 @@ export class FlightService {
     );
   }
 
+  googleLogin(idToken: string): Observable<string> {
+    return this.http.post(`${this.GATEWAY_URL}/auth/google`, { token: idToken }, { responseType: 'text' })
+      .pipe(
+        tap(token => {
+          localStorage.setItem('token', token);
+        })
+      );
+  }
+
   register(user: UserCredential): Observable<string> {
     console.log('Registering user:', user);
     
