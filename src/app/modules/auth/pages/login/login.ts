@@ -4,12 +4,12 @@ import { FlightService } from '../../../../core/services/flight';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoginForm } from '../../containers/login-form/login-form';
-import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterModule, LoginForm],
+  imports: [CommonModule, RouterModule, LoginForm, GoogleSigninButtonModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
 })

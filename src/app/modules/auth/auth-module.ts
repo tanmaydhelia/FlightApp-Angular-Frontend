@@ -7,7 +7,7 @@ import { Register } from './pages/register/register';
 import { ChangePassword } from './pages/change-password/change-password';
 import { LoginForm } from './containers/login-form/login-form';
 import { RegisterForm } from './containers/register-form/register-form';
-import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule, SocialAuthService, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 
@@ -17,6 +17,7 @@ import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-
     CommonModule,
     ReactiveFormsModule,
     GoogleSigninButtonModule,
+    SocialLoginModule,
     RouterModule,
     Login,
     Register,

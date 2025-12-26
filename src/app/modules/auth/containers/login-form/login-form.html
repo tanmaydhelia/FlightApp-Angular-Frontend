@@ -29,6 +29,13 @@
       {{ isLoading ? 'Logging in...' : 'Login' }}
     </button>
   </form>
-  
+  <div class="divider">
+    <span>OR</span>
+  </div>
+
+
+  <div class="social-login">
+    <asl-google-signin-button type="standard" size='large'></asl-google-signin-button>
+  </div>
   <a routerLink="/auth/register">New user? Register here</a>
 </div>
